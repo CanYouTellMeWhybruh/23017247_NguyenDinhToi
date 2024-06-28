@@ -106,7 +106,63 @@ def Bai3():
         except ValueError:
             print("Lỗi nhập số! Vui lòng nhập một số nguyên.")
 
-Bai3()
+
+
+# Lam viec voi file
+
+#Bai 1
+def Bai1_0():
+    # chon = int(input("Tạo file để ghi: 0. Đọc file: 1\n"))
+    # if chon == 0:
+    #     fileName = input("Nhập tên file muốn tạo: ")
+    #     try:
+    #         f = open(fileName, 'x')
+    #         print(f"File {fileName} đã được tạo thành công.")
+    #     except FileExistsError:
+    #         print(f"File {fileName} đã tồn tại.")
+    #     except Exception as e:
+    #         print(f"Đã xảy ra lỗi: {e}")
+    #     finally:
+    #         if 'f' in locals():
+    #             f.close()
+    # elif chon == 1:
+    #     file_path = input("Nhập vào tên file bạn muốn đọc: ")
+    #     try:
+    #         with open(file_path, 'r', encoding='utf-8') as file:
+    #             lines = file.readlines()
+    #             if len(lines) < 5:
+    #                 for line in lines:
+    #                     print(line, end='')
+    #             else:
+    #                 for i in range(5):
+    #                     print(lines[i], end='')
+    #     except FileNotFoundError:
+    #         print(f"File không tồn tại: {file_path}")
+    #     except Exception as e:
+    #         print(f"Đã xảy ra lỗi: {e}")
+    # else:
+    #     print("Lựa chọn không hợp lệ. Vui lòng chọn 0 hoặc 1.")
+    while True:
+        try:
+            file=open('test.txt')
+            lines = file.readlines()
+            if len(lines) < 5:
+                print("file không đủ 5 dòng!")
+                print(lines)
+                break
+            else:
+                for i in range(5):
+                    print(lines[i], end='')
+                    break
+
+        except:
+            print("Sai cú pháp.Vui lòng nhập lại!")
+    
+# Gọi hàm để thực hiện
+Bai1_0()
+
+
+
 
 
 
