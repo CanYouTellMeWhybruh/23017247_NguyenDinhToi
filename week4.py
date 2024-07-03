@@ -79,6 +79,7 @@ def Bai3():
                     break
                 elif n < 0:
                     print("Lỗi số âm!")
+                    myArray=[]
                     continue
                 myArray.append(n)
                 
@@ -102,10 +103,9 @@ def Bai3():
             mySet = set(myArray)
             print("Dãy số không trùng lặp:", mySet)
             break
-        
+         
         except ValueError:
             print("Lỗi nhập số! Vui lòng nhập một số nguyên.")
-
 
 
 # Lam viec voi file
@@ -159,7 +159,44 @@ def Bai1_0():
             print("Sai cú pháp.Vui lòng nhập lại!")
     
 # Gọi hàm để thực hiện
-Bai1_0()
+def Bai2_0():
+    while True:
+        try:
+            print("Nhập tên file muốn tạo hoặc mở để đọc và ghi: ")
+            fileName = input()
+            
+            with open(fileName, mode='a+', encoding='utf-8') as fileobject:
+                print("Nhập nội dung bạn muốn ghi vào file:")
+                toWrite = input()
+                
+                # Write the content to the file
+                fileobject.write(toWrite)
+                
+                # Move the file pointer to the beginning
+                fileobject.seek(0)
+                
+                # Read all lines from the file
+                lines = fileobject.readlines()
+                
+                # Determine the number of lines to print
+                num_lines_to_print = 5 if len(lines) >= 5 else len(lines)
+                
+                print("Nội dung trong file là:")
+                for line in lines[-num_lines_to_print:]:
+                    print(line, end='')
+                
+        except FileNotFoundError:
+            print("Không tìm thấy file! Vui lòng thử lại.")
+        except Exception as e:
+            print(f"Có lỗi xảy ra: {e}")
+        
+        # Ask user if they want to continue
+        print("\nBạn có muốn tiếp tục không? (y/n)")
+        continue_choice = input().strip().lower()
+        if continue_choice != 'y':
+            break
+
+
 
 
 
